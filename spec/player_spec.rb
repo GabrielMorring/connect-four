@@ -12,7 +12,7 @@ describe Player do
         allow(player).to receive(:puts)
 
         expect(player).to receive(:puts).with("Invalid").twice
-        player.make_move
+        player.select_column
       end
 
       it "prints invalid once" do
@@ -20,7 +20,7 @@ describe Player do
         allow(player).to receive(:puts)
 
         expect(player).to receive(:puts).with("Invalid").once
-        player.make_move
+        player.select_column
       end
     end
   end

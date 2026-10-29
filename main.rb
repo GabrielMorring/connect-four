@@ -1,3 +1,3 @@
-require_relative "lib/art"
+require_relative "lib/game"
 
-Art.draw_board
+Game.new.play

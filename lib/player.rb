@@ -3,11 +3,11 @@ class Player
     @game = game
   end
 
-  def make_move
+  def select_column
     loop do
       puts "Pick a column to place your piece."
       move = gets.chomp.strip
-      return move.to_sym if %w[a b c d e f].include?(move) && @game.board[move.to_sym].length < 6
+      return move.to_sym if %w[a b c d e f g].include?(move) && @game.board[move.to_sym].length < 6
 
       puts "Invalid"
     end

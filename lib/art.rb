@@ -1,16 +1,18 @@
 module Art
-  def self.draw_board
+  def draw_board
     draw_top
     (1..6).each do |i|
-      draw_row(7 - i)
+      draw_row(6 - i)
       draw_between
     end
+    puts ""
   end
 
   def draw_row(row)
     column = "\u2503"
     print column
-    (:a..:g).each { |col| print draw_piece(col, row) + column }
+    (:a..:g).each { |col| print piece(col, row) + column }
+    print "\n"
   end
 
   def draw_top
@@ -19,6 +21,7 @@ module Art
     top_tee = "\u2533"
     line = "\u2501"
 
+    puts " a  b  c  d  e  f  g"
     puts top_left_corner + line + line + top_tee + line + line + top_tee + line + line + top_tee + line + line + top_tee + line + line + top_tee + line + line + top_tee + line + line + top_right_corner
   end
 
@@ -31,12 +34,12 @@ module Art
     puts left_tee + line + line + intersection + line + line + intersection + line + line + intersection + line + line + intersection + line + line + intersection + line + line + intersection + line + line + right_tee
   end
 
-  def draw_piece(x, y)
+  def piece(x, y)
     white_piece = "\u26AA"
     black_piece = "\u26AB"
     return "  " if @board[x][y].nil?
-    return white_piece if @board[x][y] == 1
+    return white_piece if @board[x][y] == 0
 
-    black_piece if @board[x][y] == 2
+    black_piece if @board[x][y] == 1
   end
 end
